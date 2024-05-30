@@ -45,13 +45,13 @@ class _CounterPageState extends State<CounterPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: ()=> _bloc.CounterEventSink.add(IncrementEvent()),
+            onPressed: ()=> _bloc.counterEventSink.add(IncrementEvent()),
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
          const SizedBox(width: 10,),
           FloatingActionButton(
-            onPressed: ()=> _bloc.CounterEventSink.add(DecrementEvent()),
+            onPressed: ()=> _bloc.counterEventSink.add(DecrementEvent()),
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),
           ),
