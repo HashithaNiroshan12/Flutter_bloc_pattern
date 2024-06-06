@@ -1,4 +1,4 @@
-import 'package:bloc_pattern_flutter/screens/cubit/counter_cubit_cubit.dart';
+import 'package:bloc_pattern_flutter/logic/cubit/counter_cubit_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:test/expect.dart';
