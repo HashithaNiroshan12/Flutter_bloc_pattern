@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  final CounterCubitState counterCubitState1 = CounterCubitState(counterValue: 1);
+  final CounterCubitState counterCubitState2 = CounterCubitState(counterValue: 1);
+
+  print(counterCubitState1 == counterCubitState2);
   runApp(const MyApp());
 }
 
