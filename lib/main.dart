@@ -1,4 +1,5 @@
 import 'package:bloc_pattern_flutter/logic/cubit/counter_cubit_cubit.dart';
+import 'package:bloc_pattern_flutter/presentation/routes/app_router.dart';
 import 'package:bloc_pattern_flutter/presentation/screens/counter_page.dart';
 import 'package:bloc_pattern_flutter/presentation/screens/second_sccreen.dart';
 import 'package:bloc_pattern_flutter/presentation/screens/third_screen.dart';
@@ -16,53 +17,31 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  
   const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
-final CounterCubitCubit _counterCubit = CounterCubitCubit();
+
+final AppRouter _appRouter = AppRouter();
+
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      routes: {
-        '/': (context) => BlocProvider.value(
-              value: _counterCubit,
-              child: CounterPage(
-                title: 'HomeScreen',
-                color: Colors.blueAccent,
-              ),
-            ),
-        '/second': (context) => BlocProvider.value(
-              value: _counterCubit,
-              child: SecondScreen(
-                title: 'Second Screen',
-                color: Colors.redAccent,
-              ),
-            ),
-        '/third': (context) => BlocProvider.value(
-              value: _counterCubit,
-              child: ThirdPage(
-                title: 'Third Screen',
-                color: Colors.greenAccent,
-              ),
-            ),
-      },
+      onGenerateRoute: _appRouter.onGenerateRoute,
     );
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
-    _counterCubit.close();
+    _appRouter.dispose();
     super.dispose();
   }
 }
